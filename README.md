@@ -1,5 +1,7 @@
 # Webcam to Ascii
 
+[LIVE DEMO](https://simonmartin87.github.io/WebcamToASCII/)
+
 scafolded with [React Webpack Typescript Starter](https://github.com/vikpe/react-webpack-typescript-starter).
 
 ## Installation
@@ -40,4 +42,4 @@ Command | Description
 ## See also
 * [Create React App](https://github.com/facebook/create-react-app)
 * [Vite](https://vitejs.dev/)
-* [Parsel](https://parceljs.org/)
+* [Parcel](https://parceljs.org/)
