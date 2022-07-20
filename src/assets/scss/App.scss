@@ -10,3 +10,64 @@ $border-color: red;
     background-color: $bg-color;
   }
 }
+
+.ascii {
+  font-family: monospace;
+  white-space: nowrap;
+  p {
+    margin: -2px;
+  }
+}
+
+.menu {
+  display: flex;
+}
+
+fieldset {
+  transition: all ease .3s;
+}
+
+.menu.hidden,
+fieldset.hidden {
+  height: 0;
+  padding: 0;
+  opacity: 0;
+}
+
+.input-group {
+  display: flex;
+}
+
+.burger {
+  width: 30px;
+  height: 30px;
+  padding-top: 3px;
+  background-color: grey;
+  border-radius: 5px;
+  cursor: pointer;
+
+  span {
+    width: calc(100% - 10px);
+    background-color: #a1efbb;
+    height: 5px;
+    display: block;
+    margin-left: 5px;
+    margin-top: 3px;
+    border-radius: 3px;
+    transition: all ease .3s;
+  }
+
+  &.open {
+    span {
+      &:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+  }
+}
