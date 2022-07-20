@@ -9,7 +9,7 @@ import {isMobile} from 'is-mobile';
 import { getCapturer } from '../utils/getCapturer';
 
 
-export type FPSValue = 1 | 5 | 10 | 15 | 'max';
+export type FPSValue = 0 | 1 | 5 | 10 | 15 | 'max';
 
 export type ImageSourceType = "none" | "capturer" | "video";
 
@@ -128,17 +128,22 @@ export const AppContextProvider = ({children}) => {
         }
       }
 
-      if (fps !== 'max') {
-        clearInterval(intervalId);
-        intervalId = setInterval( draw , 1000/fps);
-      } else {
-        const loop = () => {
-          draw();
-          intervalId = requestAnimationFrame(loop);
-        }
-        loop();
+      switch (fps) {
+        case 'max':
+          const loop = () => {
+            draw();
+            intervalId = requestAnimationFrame(loop);
+          }
+          loop();
+          break;
+        case 0:
+          // draw();
+          break;
+        default:
+          clearInterval(intervalId);
+          intervalId = setInterval( draw , 1000/fps);
       }
-    }
+    } 
     return () => {
       clearInterval(intervalId);
       cancelAnimationFrame(intervalId);
